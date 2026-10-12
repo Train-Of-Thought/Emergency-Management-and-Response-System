@@ -1,0 +1,505 @@
+
+/* ==================== REGISTRATION PAGE LAYOUT ==================== */
+
+.auth-page {
+    width: 100%;
+    min-height: 100vh;
+    padding: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+
+    background-color: var(--emrs-background);
+}
+
+
+/* ==================== REGISTRATION FORM PANEL ==================== */
+
+.register-left {
+    flex: 1 1 480px;
+    min-width: 0;
+    max-width: 600px;
+    padding: 35px 55px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background-color: var(--emrs-white);
+    border-radius: 16px 0 0 16px;
+}
+
+
+/* ==================== EMRS BRAND ==================== */
+
+.auth-logo {
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    gap: 12px;
+    margin-bottom: 28px;
+}
+
+.auth-logo-icon {
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--emrs-navy);
+    color: var(--emrs-white);
+    border-radius: 12px;
+
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.auth-logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.4;
+}
+
+.auth-logo-text strong {
+    color: var(--emrs-navy);
+    font-size: 22px;
+    letter-spacing: 1px;
+}
+
+.auth-logo-text small {
+    color: #6b7b8d;
+    font-size: 11px;
+}
+
+
+/* ==================== REGISTRATION INTRODUCTION ==================== */
+
+.auth-heading {
+    margin-bottom: 22px;
+}
+
+.auth-label {
+    margin-bottom: 8px;
+    color: var(--emrs-teal);
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+.auth-heading h1 {
+    margin-bottom: 8px;
+    color: var(--emrs-navy);
+    font-size: clamp(28px, 3vw, 36px);
+    line-height: 1.3;
+}
+
+.auth-heading > p:last-child {
+    max-width: 380px;
+    color: #64788b;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+
+/* ==================== REGISTRATION FORM FIELDS ==================== */
+
+#registerForm {
+    width: 100%;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    color: #344b63;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.form-control {
+    width: 100%;
+    min-height: 44px;
+    padding: 11px 14px;
+
+    background-color: #ffffff;
+    color: #24364b;
+    border: 1px solid #d7e1e9;
+    border-radius: 7px;
+
+    font-family: inherit;
+    font-size: 13px;
+}
+
+.form-control::placeholder {
+    color: #94a3b3;
+}
+
+.form-control:focus {
+    outline: 2px solid #bce3e6;
+    border-color: var(--emrs-teal);
+}
+
+
+/* ==================== PASSWORD VISIBILITY ==================== */
+
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-wrapper .form-control {
+    padding-right: 75px;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 12px;
+
+    padding: 5px;
+    background: transparent;
+    border: none;
+
+    color: var(--emrs-teal);
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.password-toggle:focus-visible {
+    outline: 2px solid var(--emrs-teal);
+    outline-offset: 2px;
+}
+
+.field-hint {
+    color: #8493a2;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+
+/* ==================== PERSONNEL APPROVAL NOTICE ==================== */
+
+.approval-notice {
+    margin-bottom: 16px;
+    padding: 12px 14px;
+
+    background-color: #edf6f7;
+    border: 1px solid #d2e9eb;
+    border-left: 4px solid var(--emrs-teal);
+    border-radius: 7px;
+}
+
+.approval-notice[hidden] {
+    display: none;
+}
+
+.approval-notice strong {
+    display: block;
+    margin-bottom: 4px;
+
+    color: var(--emrs-navy);
+    font-size: 12px;
+}
+
+.approval-notice p {
+    color: #617d91;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+
+/* ==================== CREATE ACCOUNT BUTTON ==================== */
+
+.auth-submit {
+    width: 100%;
+    min-height: 46px;
+    padding: 12px 20px;
+
+    background-color: var(--emrs-navy);
+    color: #ffffff;
+    border: 1px solid var(--emrs-navy);
+    border-radius: 7px;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.auth-submit:hover {
+    background-color: #24547e;
+}
+
+.auth-submit:focus-visible {
+    outline: 3px solid #bce3e6;
+    outline-offset: 3px;
+}
+
+
+/* ==================== FORM FEEDBACK ==================== */
+
+.form-message {
+    min-height: 20px;
+    margin-top: 10px;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.form-message.error {
+    color: var(--emrs-red);
+}
+
+.form-message.success {
+    color: #267b63;
+}
+
+
+/* ==================== LOGIN LINK ==================== */
+
+.auth-switch {
+    margin-top: 16px;
+    color: #64788b;
+    font-size: 12px;
+    text-align: center;
+}
+
+.auth-switch a {
+    color: var(--emrs-teal);
+    font-weight: bold;
+}
+
+.auth-switch a:hover {
+    text-decoration: underline;
+}
+
+
+/* ==================== REGISTRATION FOOTER ==================== */
+
+.auth-footer {
+    margin-top: 22px;
+    padding-top: 15px;
+
+    border-top: 1px solid #e5ebf0;
+    text-align: center;
+}
+
+.auth-footer p {
+    margin-bottom: 4px;
+    color: #8493a2;
+    font-size: 10px;
+    line-height: 1.6;
+}
+
+
+/* ==================== REGISTRATION ILLUSTRATION PANEL ==================== */
+
+.register-right {
+    flex: 1 1 480px;
+    min-width: 0;
+    max-width: 650px;
+    padding: 45px 35px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+    background-color: #eaf5f7;
+    border-radius: 0 16px 16px 0;
+}
+
+.register-illustration-content {
+    width: 100%;
+    max-width: 480px;
+    text-align: center;
+}
+
+.register-symbol {
+    width: 58px;
+    height: 58px;
+    margin: 0 auto 25px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #d5ecee;
+    border-radius: 18px;
+}
+
+.register-symbol span {
+    color: var(--emrs-teal);
+    font-size: 40px;
+    line-height: 1;
+}
+
+.illustration-label {
+    margin-bottom: 12px;
+    color: var(--emrs-teal);
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.register-illustration-content h2 {
+    color: var(--emrs-navy);
+    font-size: clamp(26px, 3vw, 38px);
+    line-height: 1.3;
+}
+
+.illustration-description {
+    max-width: 360px;
+    margin: 15px auto 0;
+
+    color: #617d91;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+
+/* ==================== COMMUNITY SCENE ==================== */
+
+.register-scene {
+    height: 230px;
+    margin-top: 25px;
+
+    position: relative;
+    overflow: hidden;
+
+    background-color: #d9eef2;
+    border-radius: 14px;
+}
+
+.register-cloud {
+    position: absolute;
+    height: 20px;
+    background-color: #f7fcfd;
+    border-radius: 20px;
+}
+
+.register-cloud-one {
+    width: 100px;
+    top: 35px;
+    left: 10%;
+}
+
+.register-cloud-two {
+    width: 75px;
+    top: 55px;
+    right: 10%;
+}
+
+
+/* ==================== COMMUNITY HILLS ==================== */
+
+.register-hill {
+    position: absolute;
+    bottom: -55px;
+    border-radius: 50% 50% 0 0;
+}
+
+.register-hill-back {
+    width: 115%;
+    height: 160px;
+    left: -15%;
+    background-color: #acdce3;
+    transform: rotate(-7deg);
+}
+
+.register-hill-front {
+    width: 120%;
+    height: 115px;
+    left: 15%;
+    bottom: -45px;
+    background-color: #80c5d0;
+    transform: rotate(7deg);
+}
+
+
+/* ==================== COMMUNITY BUILDINGS ==================== */
+
+.register-house {
+    position: absolute;
+    bottom: 48px;
+
+    width: 58px;
+    height: 48px;
+
+    background-color: #ffffff;
+    border: 2px solid #a2cbd5;
+    border-radius: 3px;
+}
+
+.register-house::before {
+    content: "";
+    position: absolute;
+    width: 42px;
+    height: 42px;
+    top: -23px;
+    left: 5px;
+
+    background-color: #7eafb9;
+    transform: rotate(45deg);
+    border-radius: 3px;
+}
+
+.register-house-one {
+    left: 12%;
+    transform: scale(0.8);
+}
+
+.register-house-two {
+    left: 42%;
+    bottom: 55px;
+    transform: scale(1.1);
+}
+
+.register-house-three {
+    right: 10%;
+    transform: scale(0.85);
+}
+
+
+/* ==================== EMERGENCY SYMBOL ==================== */
+
+.register-cross {
+    position: absolute;
+    z-index: 3;
+    top: 45px;
+    left: 50%;
+
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--emrs-white);
+    color: var(--emrs-red);
+    border-radius: 8px;
+
+    font-size: 25px;
+    font-weight: bold;
+
+    transform: translateX(-50%);
+}
+
+
+/* ==================== ILLUSTRATION CAPTION ==================== */
+
+.illustration-caption {
+    margin-top: 20px;
+    color: #617d91;
+    font-size: 12px;
+    font-weight: 600;
+}

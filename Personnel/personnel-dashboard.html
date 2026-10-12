@@ -1,0 +1,513 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ==================== DOCUMENT SETTINGS ==================== -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personnel Dashboard | EMRS</title>
+
+    <!-- ==================== STYLESHEETS ==================== -->
+
+    <link rel="stylesheet" href="../shared/css/global.css">
+    <link rel="stylesheet" href="personnel-dashboard.css">
+
+    <!-- ==================== PAGE SCRIPT ==================== -->
+
+    <script src="personnel-dashboard.js" defer></script>
+</head>
+<body>
+
+    <!-- ==================== DASHBOARD LAYOUT ==================== -->
+
+    <div class="dashboard-layout">
+
+        <!-- ==================== SIDEBAR ==================== -->
+
+        <aside class="sidebar">
+
+            <a href="../Landing/index.html" class="sidebar-brand">
+                <span class="brand-icon">
+                    <span>+</span>
+                </span>
+
+                <span class="brand-text">
+                    <strong>EMRS</strong>
+                    <small>LGU Command Center</small>
+                </span>
+            </a>
+
+            <!-- ==================== SIDEBAR NAVIGATION ==================== -->
+
+            <nav class="sidebar-navigation" aria-label="Main navigation">
+
+                <a href="#dashboard" class="nav-link active">
+                    <span class="nav-icon">▦</span>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="#active-reports" class="nav-link">
+                    <span class="nav-icon">♧</span>
+                    <span>Active Reports</span>
+                    <span class="nav-count">8</span>
+                </a>
+
+                <a href="#records" class="nav-link">
+                    <span class="nav-icon">▤</span>
+                    <span>Records</span>
+                </a>
+
+                <a href="#responders" class="nav-link">
+                    <span class="nav-icon">♙</span>
+                    <span>Responders</span>
+                </a>
+
+                <a href="#coverage" class="nav-link">
+                    <span class="nav-icon">◫</span>
+                    <span>Coverage</span>
+                </a>
+
+                <a href="#settings" class="nav-link">
+                    <span class="nav-icon">⚙</span>
+                    <span>Settings</span>
+                </a>
+
+            </nav>
+
+            <!-- ==================== SYSTEM STATUS ==================== -->
+
+            <div class="system-status">
+                <div class="system-status-heading">
+                    <span class="online-indicator"></span>
+
+                    <div>
+                        <strong>System Online</strong>
+                        <small>Prototype status</small>
+                    </div>
+                </div>
+
+                <p>Sample dashboard data is being displayed.</p>
+            </div>
+
+            <!-- ==================== PERSONNEL PROFILE ==================== -->
+
+            <div class="personnel-profile">
+                <div class="profile-avatar">JO</div>
+
+                <div class="profile-details">
+                    <strong>J. Osmeña</strong>
+                    <small>Duty Officer</small>
+                </div>
+            </div>
+
+        </aside>
+
+        <!-- ==================== MAIN DASHBOARD ==================== -->
+
+        <main class="dashboard-main" id="dashboard">
+
+            <!-- ==================== TOP HEADER ==================== -->
+
+            <header class="top-header">
+
+                <div class="header-title">
+                    <h1>Command Overview</h1>
+                    <p>Sunday shift · 6 barangays monitored · Minglanilla, Cebu</p>
+                </div>
+
+                <div class="header-actions">
+
+                    <form class="search-form" id="searchForm" role="search">
+                        <label for="reportSearch" class="search-symbol">⌕</label>
+
+                        <input
+                            type="search"
+                            id="reportSearch"
+                            placeholder="Search report, name, ID..."
+                            autocomplete="off"
+                        >
+                    </form>
+
+                    <button
+                        type="button"
+                        class="icon-button notification-button"
+                        id="notificationButton"
+                        aria-label="View notifications"
+                        title="Notifications"
+                    >
+                        ♧
+                        <span class="notification-dot"></span>
+                    </button>
+
+                    <button type="button" class="new-dispatch-button" id="newDispatchButton">
+                        <span>+</span>
+                        New Dispatch
+                    </button>
+
+                </div>
+
+            </header>
+
+            <!-- ==================== DASHBOARD CONTENT ==================== -->
+
+            <div class="dashboard-content">
+
+                <!-- ==================== SUMMARY CARDS ==================== -->
+
+                <section class="summary-cards" aria-label="Incident summary">
+
+                    <article class="summary-card">
+                        <div class="summary-icon icon-red">♧</div>
+
+                        <div class="summary-information">
+                            <strong>8</strong>
+                            <p>Active reports</p>
+                            <small>+3 this hour</small>
+                        </div>
+                    </article>
+
+                    <article class="summary-card">
+                        <div class="summary-icon icon-blue">✥</div>
+
+                        <div class="summary-information">
+                            <strong>5</strong>
+                            <p>Verified</p>
+                            <small>62% verify rate</small>
+                        </div>
+                    </article>
+
+                    <article class="summary-card">
+                        <div class="summary-icon icon-green">▣</div>
+
+                        <div class="summary-information">
+                            <strong>4</strong>
+                            <p>Units dispatched</p>
+                            <small>2 en route</small>
+                        </div>
+                    </article>
+
+                    <article class="summary-card">
+                        <div class="summary-icon icon-orange">◴</div>
+
+                        <div class="summary-information">
+                            <strong>6m</strong>
+                            <p>Avg. response</p>
+                            <small>−1m vs yesterday</small>
+                        </div>
+                    </article>
+
+                </section>
+
+                <!-- ==================== MAIN WORKSPACE ==================== -->
+
+                <section class="dashboard-workspace">
+
+                    <!-- ==================== INCIDENT MAP PANEL ==================== -->
+
+                    <div class="map-column">
+
+                        <section class="panel map-panel" id="coverage">
+
+                            <div class="panel-heading map-heading">
+
+                                <div>
+                                    <h2>Incident Map</h2>
+                                    <p>Minglanilla, Cebu · Illustrative locations</p>
+                                </div>
+
+                                <div class="map-controls">
+                                    <span class="live-badge">
+                                        <span></span>
+                                        Demo
+                                    </span>
+
+                                    <button
+                                        type="button"
+                                        class="secondary-button"
+                                        id="mapViewButton"
+                                    >
+                                        ◈ Streets
+                                    </button>
+                                </div>
+
+                            </div>
+
+                            <!-- ==================== ILLUSTRATIVE MAP ==================== -->
+
+                            <div class="incident-map" id="incidentMap">
+
+                                <div class="map-water"></div>
+                                <div class="map-park"></div>
+
+                                <div class="map-block block-one"></div>
+                                <div class="map-block block-two"></div>
+                                <div class="map-block block-three"></div>
+                                <div class="map-block block-four"></div>
+
+                                <div class="map-road road-horizontal road-one"></div>
+                                <div class="map-road road-horizontal road-two"></div>
+                                <div class="map-road road-horizontal road-three"></div>
+
+                                <div class="map-road road-vertical road-four"></div>
+                                <div class="map-road road-vertical road-five"></div>
+                                <div class="map-road road-vertical road-six"></div>
+                                <div class="map-road road-vertical road-seven"></div>
+
+                                <span class="map-label label-bacalso">N. Bacalso Ave</span>
+                                <span class="map-label label-ward">Ward Rd</span>
+                                <span class="map-label label-poblacion">Poblacion</span>
+                                <span class="map-label label-tulay">Tulay</span>
+                                <span class="map-label label-water">Coastal area</span>
+
+                                <!-- ==================== INCIDENT MARKERS ==================== -->
+
+                                <button
+                                    type="button"
+                                    class="map-marker marker-critical"
+                                    data-report-id="MDL-2481"
+                                    aria-label="Medical emergency MDL-2481"
+                                    title="Medical emergency · MDL-2481"
+                                >
+                                    M
+                                    <span class="marker-id">MDL-2481</span>
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="map-marker marker-police"
+                                    data-report-id="MDL-2479"
+                                    aria-label="Police report MDL-2479"
+                                    title="Police report · MDL-2479"
+                                >
+                                    ♧
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="map-marker marker-fire"
+                                    data-report-id="MDL-2480"
+                                    aria-label="Fire report MDL-2480"
+                                    title="Fire report · MDL-2480"
+                                >
+                                    ♨
+                                    <span class="marker-caption">Fire · Tulay</span>
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="map-marker marker-unit"
+                                    aria-label="Illustrative unit location"
+                                    title="Illustrative unit location"
+                                >
+                                    ≋
+                                </button>
+
+                                <!-- ==================== MAP LEGEND ==================== -->
+
+                                <div class="map-legend">
+                                    <span><i class="legend-red"></i>Critical</span>
+                                    <span><i class="legend-orange"></i>Fire</span>
+                                    <span><i class="legend-green"></i>Unit</span>
+                                </div>
+
+                                <!-- ==================== MAP ZOOM CONTROLS ==================== -->
+
+                                <div class="map-zoom-controls">
+                                    <button type="button" id="zoomIn" aria-label="Zoom in">+</button>
+                                    <button type="button" id="zoomOut" aria-label="Zoom out">−</button>
+                                </div>
+
+                            </div>
+
+                        </section>
+
+                        <!-- ==================== UNIT STATUS BAR ==================== -->
+
+                        <section class="unit-status-panel" id="responders">
+
+                            <strong class="unit-status-title">Units</strong>
+
+                            <div class="unit-list">
+
+                                <div class="unit-chip">
+                                    <strong>MED-02</strong>
+                                    <span class="unit-enroute">En route</span>
+                                </div>
+
+                                <div class="unit-chip">
+                                    <strong>FIRE-01</strong>
+                                    <span class="unit-onscene">On scene</span>
+                                </div>
+
+                                <div class="unit-chip">
+                                    <strong>PNP-04</strong>
+                                    <span class="unit-standby">Standby</span>
+                                </div>
+
+                                <div class="unit-chip">
+                                    <strong>DRRM-03</strong>
+                                    <span class="unit-standby">Standby</span>
+                                </div>
+
+                            </div>
+
+                            <span class="unit-availability">4 of 9 units available</span>
+
+                        </section>
+
+                    </div>
+
+                    <!-- ==================== LIVE INCIDENT QUEUE ==================== -->
+
+                    <aside class="panel queue-panel" id="active-reports">
+
+                        <div class="panel-heading queue-heading">
+                            <h2>Live Queue <span class="queue-count">8</span></h2>
+
+                            <button type="button" id="sortQueueButton" class="sort-button">
+                                Oldest first ↓
+                            </button>
+                        </div>
+
+                        <!-- ==================== INCIDENT CARDS ==================== -->
+
+                        <div class="queue-list" id="queueList">
+
+                            <article class="incident-card urgent-card" data-priority="1" data-time="2">
+                                <div class="incident-top-row">
+
+                                    <div class="incident-type-icon medical-icon">♡</div>
+
+                                    <div class="incident-information">
+                                        <strong>Maria Santos <span class="verified-symbol">✓</span></strong>
+                                        <small>MDL-2481 · Poblacion W3 · 2 min ago</small>
+                                    </div>
+
+                                    <span class="incident-status status-critical">Critical</span>
+
+                                </div>
+
+                                <div class="incident-meta">
+                                    <span>Medical</span>
+                                    <small>GPS 10.24, 123.79</small>
+                                </div>
+
+                                <div class="incident-actions">
+                                    <button type="button" class="verify-button">Verify</button>
+                                    <button type="button" class="dispatch-button">Dispatch</button>
+                                    <button type="button" class="call-button" aria-label="Contact reporter" title="Contact reporter">☎</button>
+                                </div>
+                            </article>
+
+                            <article class="incident-card" data-priority="2" data-time="6">
+                                <div class="incident-top-row">
+
+                                    <div class="incident-type-icon fire-icon">♨</div>
+
+                                    <div class="incident-information">
+                                        <strong>Jose Ramirez <span class="verified-symbol">✓</span></strong>
+                                        <small>MDL-2480 · Tulay · 6 min ago</small>
+                                    </div>
+
+                                    <span class="incident-status status-pending">Pending</span>
+
+                                </div>
+
+                                <div class="incident-meta">
+                                    <span>Fire</span>
+                                    <small>GPS 10.24, 123.79</small>
+                                </div>
+
+                                <div class="incident-actions">
+                                    <button type="button" class="verify-button">Verify</button>
+                                    <button type="button" class="dispatch-button">Dispatch</button>
+                                    <button type="button" class="call-button" aria-label="Contact reporter" title="Contact reporter">☎</button>
+                                </div>
+                            </article>
+
+                            <article class="incident-card" data-priority="3" data-time="11">
+                                <div class="incident-top-row">
+
+                                    <div class="incident-type-icon police-icon">♧</div>
+
+                                    <div class="incident-information">
+                                        <strong>Ana Villanueva <span class="verified-symbol">✓</span></strong>
+                                        <small>MDL-2479 · Lipata · 11 min ago</small>
+                                    </div>
+
+                                    <span class="incident-status status-review">Pending</span>
+
+                                </div>
+
+                                <div class="incident-meta">
+                                    <span>Police</span>
+                                    <small>GPS 10.24, 123.79</small>
+                                </div>
+
+                                <div class="incident-actions">
+                                    <button type="button" class="verify-button">Verify</button>
+                                    <button type="button" class="dispatch-button">Dispatch</button>
+                                    <button type="button" class="call-button" aria-label="Contact reporter" title="Contact reporter">☎</button>
+                                </div>
+                            </article>
+
+                            <article class="incident-card" data-priority="4" data-time="18">
+                                <div class="incident-top-row">
+
+                                    <div class="incident-type-icon disaster-icon">≋</div>
+
+                                    <div class="incident-information">
+                                        <strong>Mark Daculan <span class="verified-symbol">✓</span></strong>
+                                        <small>MDL-2478 · Tunghaan · 18 min ago</small>
+                                    </div>
+
+                                    <span class="incident-status status-verified">Verified</span>
+
+                                </div>
+
+                                <div class="incident-meta">
+                                    <span>Disaster</span>
+                                    <small>GPS 10.24, 123.79</small>
+                                </div>
+
+                                <div class="incident-actions">
+                                    <button type="button" class="verify-button">Verify</button>
+                                    <button type="button" class="dispatch-button">Dispatch</button>
+                                    <button type="button" class="call-button" aria-label="Contact reporter" title="Contact reporter">☎</button>
+                                </div>
+                            </article>
+
+                        </div>
+
+                        <!-- ==================== VIEW ALL REPORTS ==================== -->
+
+                        <div class="queue-footer">
+                            <button type="button" id="viewAllReportsButton">
+                                View all 8 reports
+                            </button>
+                        </div>
+
+                    </aside>
+
+                </section>
+
+                <!-- ==================== PROTOTYPE NOTICE ==================== -->
+
+                <p class="prototype-notice">
+                    Academic frontend prototype · All incidents, locations, unit statuses,
+                    and statistics are illustrative and are not live emergency data.
+                </p>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <!-- ==================== DEMONSTRATION MESSAGE ==================== -->
+
+    <div class="demo-toast" id="demoToast" role="status" aria-live="polite"></div>
+
+</body>
+</html>

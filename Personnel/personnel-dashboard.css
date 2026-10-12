@@ -1,0 +1,1422 @@
+    
+/* ==================== DASHBOARD RESET ==================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background-color: #f3f5fa;
+    color: #252936;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* ==================== MAIN DASHBOARD LAYOUT ==================== */
+
+.dashboard-layout {
+    min-height: 100vh;
+    display: flex;
+    align-items: stretch;
+    background-color: #f3f5fa;
+}
+
+
+/* ==================== SIDEBAR ==================== */
+
+.sidebar {
+    flex: 0 0 240px;
+    width: 240px;
+    min-height: 100vh;
+    padding: 17px 16px;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: #ffffff;
+    border-right: 1px solid #e3e7ee;
+}
+
+
+/* ==================== SIDEBAR BRAND ==================== */
+
+.sidebar-brand {
+    min-height: 43px;
+    margin: 0 4px 20px;
+
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.brand-icon {
+    width: 39px;
+    height: 39px;
+    flex: 0 0 39px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #191d2b;
+    color: #ffffff;
+    border-radius: 13px;
+}
+
+.brand-icon span {
+    width: 20px;
+    height: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 2px solid #ffffff;
+    border-radius: 6px;
+
+    font-size: 17px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    line-height: 1.4;
+}
+
+.brand-text strong {
+    color: #242735;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+}
+
+.brand-text small {
+    color: #929aaa;
+    font-size: 11px;
+}
+
+
+/* ==================== SIDEBAR NAVIGATION ==================== */
+
+.sidebar-navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.nav-link {
+    min-height: 43px;
+    padding: 10px 12px;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    color: #687182;
+    border-radius: 9px;
+
+    font-size: 13px;
+    font-weight: 600;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-link:hover {
+    background-color: #f2f5f9;
+    color: #173c61;
+}
+
+.nav-link.active {
+    background-color: #191d2b;
+    color: #ffffff;
+}
+
+.nav-icon {
+    width: 17px;
+    flex: 0 0 17px;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.nav-count {
+    width: 20px;
+    height: 20px;
+    margin-left: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #e94b61;
+    color: #ffffff;
+    border-radius: 50%;
+
+    font-size: 11px;
+    font-weight: bold;
+}
+
+
+/* ==================== SYSTEM STATUS ==================== */
+
+.system-status {
+    margin-top: 14px;
+    padding: 13px 12px;
+
+    background-color: #f5f7fa;
+    border: 1px solid #e4e8ef;
+    border-radius: 13px;
+}
+
+.system-status-heading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.online-indicator {
+    width: 29px;
+    height: 29px;
+    flex: 0 0 29px;
+
+    background-color: #d9f0e6;
+    border: 7px solid #e7f6ef;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 2px #4aa88b;
+}
+
+.system-status-heading div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.system-status-heading strong {
+    color: #303544;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.system-status-heading small {
+    color: #8993a3;
+    font-size: 10px;
+}
+
+.system-status > p {
+    margin: 10px 0 0;
+    color: #8b95a5;
+    font-size: 10px;
+    line-height: 1.6;
+}
+
+
+/* ==================== PERSONNEL PROFILE ==================== */
+
+.personnel-profile {
+    margin-top: 15px;
+    padding: 0 4px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-avatar {
+    width: 36px;
+    height: 36px;
+    flex: 0 0 36px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #e2ebfa;
+    color: #4778c7;
+    border-radius: 50%;
+
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.profile-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.profile-details strong {
+    color: #303544;
+    font-size: 12px;
+}
+
+.profile-details small {
+    color: #8993a3;
+    font-size: 11px;
+}
+
+
+/* ==================== MAIN CONTENT ==================== */
+
+.dashboard-main {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+
+/* ==================== TOP HEADER ==================== */
+
+.top-header {
+    min-height: 86px;
+    padding: 15px 24px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+
+    background-color: #ffffff;
+    border-bottom: 1px solid #e3e7ee;
+}
+
+.header-title h1 {
+    margin: 0 0 2px;
+    color: #252936;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.header-title p {
+    margin: 0;
+    color: #929aaa;
+    font-size: 12px;
+}
+
+.header-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+
+/* ==================== SEARCH BAR ==================== */
+
+.search-form {
+    width: 260px;
+    min-height: 40px;
+    padding: 0 12px;
+
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    background-color: #f5f6fa;
+    border: 1px solid #e2e6ee;
+    border-radius: 9px;
+}
+
+.search-symbol {
+    color: #242936;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1;
+    transform: rotate(-20deg);
+}
+
+.search-form input {
+    width: 100%;
+    min-width: 0;
+    padding: 9px 0;
+
+    background: transparent;
+    border: none;
+    outline: none;
+
+    color: #303544;
+    font-size: 12px;
+}
+
+.search-form input::placeholder {
+    color: #929aaa;
+}
+
+
+/* ==================== HEADER BUTTONS ==================== */
+
+.icon-button {
+    width: 40px;
+    height: 40px;
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #f5f6fa;
+    border: 1px solid #e2e6ee;
+    border-radius: 9px;
+
+    color: #626d7f;
+    font-size: 22px;
+}
+
+.icon-button:hover {
+    background-color: #eaf0f7;
+}
+
+.notification-dot {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+
+    width: 6px;
+    height: 6px;
+
+    background-color: #e94b61;
+    border: 1px solid #ffffff;
+    border-radius: 50%;
+}
+
+.new-dispatch-button {
+    min-height: 40px;
+    padding: 0 16px;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+
+    background-color: #191d2b;
+    color: #ffffff;
+    border: 1px solid #191d2b;
+    border-radius: 9px;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.new-dispatch-button:hover {
+    background-color: #173c61;
+}
+
+.new-dispatch-button span {
+    font-size: 22px;
+    line-height: 1;
+}
+
+
+/* ==================== DASHBOARD CONTENT ==================== */
+
+.dashboard-content {
+    padding: 21px 24px 15px;
+}
+
+
+/* ==================== SUMMARY CARDS ==================== */
+
+.summary-cards {
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.summary-card {
+    flex: 1 1 165px;
+    min-width: 0;
+    min-height: 94px;
+    padding: 16px;
+
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    background-color: #ffffff;
+    border: 1px solid #e1e6ee;
+    border-radius: 15px;
+}
+
+.summary-icon {
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 10px;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.icon-red {
+    background-color: #fde5e9;
+    color: #e94b61;
+}
+
+.icon-blue {
+    background-color: #e3ebfb;
+    color: #4778c7;
+}
+
+.icon-green {
+    background-color: #ddf1e8;
+    color: #3b9177;
+}
+
+.icon-orange {
+    background-color: #fbefdc;
+    color: #c78332;
+}
+
+.summary-information {
+    min-width: 0;
+}
+
+.summary-information > strong {
+    display: block;
+    margin-bottom: 1px;
+
+    color: #252936;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1.15;
+}
+
+.summary-information p {
+    margin: 0 0 2px;
+    color: #353947;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.summary-information small {
+    display: block;
+    color: #929aaa;
+    font-size: 11px;
+}
+
+
+/* ==================== MAIN WORKSPACE ==================== */
+
+.dashboard-workspace {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.map-column {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+.panel {
+    background-color: #ffffff;
+    border: 1px solid #e1e6ee;
+    border-radius: 16px;
+}
+
+
+/* ==================== PANEL HEADINGS ==================== */
+
+.panel-heading {
+    min-height: 68px;
+    padding: 13px 16px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+
+    border-bottom: 1px solid #e8ebf1;
+}
+
+.panel-heading h2 {
+    margin: 0;
+    color: #303442;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.panel-heading p {
+    margin: 3px 0 0;
+    color: #929aaa;
+    font-size: 11px;
+}
+
+.map-controls {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.live-badge {
+    padding: 5px 10px;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    background-color: #e0f2e9;
+    color: #3c8e73;
+    border-radius: 20px;
+
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.live-badge span {
+    width: 6px;
+    height: 6px;
+    background-color: #40a786;
+    border-radius: 50%;
+}
+
+.secondary-button {
+    min-height: 34px;
+    padding: 7px 11px;
+
+    background-color: #f5f6fa;
+    color: #303544;
+    border: 1px solid #e1e6ee;
+    border-radius: 8px;
+
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.secondary-button:hover {
+    background-color: #eaf0f7;
+}
+
+
+/* ==================== ILLUSTRATIVE INCIDENT MAP ==================== */
+
+.incident-map {
+    height: 515px;
+    position: relative;
+    overflow: hidden;
+
+    background-color: #e8eee7;
+    isolation: isolate;
+}
+
+.map-water {
+    position: absolute;
+    top: -8%;
+    right: -4%;
+
+    width: 23%;
+    height: 42%;
+
+    background-color: #d0e3f0;
+    border-radius: 0 0 0 70%;
+}
+
+.map-park {
+    position: absolute;
+    bottom: -4%;
+    left: -3%;
+
+    width: 26%;
+    height: 29%;
+
+    background-color: #d7e6d4;
+    border-radius: 0 25px 0 0;
+}
+
+.map-block {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.block-one {
+    top: 5%;
+    left: 19%;
+    width: 25%;
+    height: 18%;
+}
+
+.block-two {
+    top: 31%;
+    left: 4%;
+    width: 15%;
+    height: 15%;
+}
+
+.block-three {
+    top: 52%;
+    left: 47%;
+    width: 19%;
+    height: 17%;
+}
+
+.block-four {
+    top: 7%;
+    left: 55%;
+    width: 19%;
+    height: 16%;
+}
+
+
+/* ==================== MAP ROADS ==================== */
+
+.map-road {
+    position: absolute;
+    z-index: 1;
+    background-color: #ffffff;
+}
+
+.road-horizontal {
+    left: -4%;
+    width: 112%;
+    height: 12px;
+
+    border-top: 3px dashed #d8dde3;
+    border-bottom: 3px dashed #d8dde3;
+}
+
+.road-one {
+    top: 24%;
+    transform: rotate(-1deg);
+}
+
+.road-two {
+    top: 49%;
+    transform: rotate(1.2deg);
+}
+
+.road-three {
+    top: 74%;
+    transform: rotate(-1.5deg);
+}
+
+.road-vertical {
+    top: -10%;
+    width: 11px;
+    height: 125%;
+
+    border-left: 3px solid #ffffff;
+    border-right: 3px solid #ffffff;
+}
+
+.road-four {
+    left: 19%;
+    transform: rotate(-1.5deg);
+}
+
+.road-five {
+    left: 45%;
+    transform: rotate(1deg);
+}
+
+.road-six {
+    left: 73%;
+    transform: rotate(-1deg);
+}
+
+.road-seven {
+    left: 32%;
+    height: 50%;
+    top: 28%;
+    transform: rotate(-3deg);
+}
+
+.map-label {
+    position: absolute;
+    z-index: 2;
+    color: #8b99a8;
+    font-size: 11px;
+    pointer-events: none;
+}
+
+.label-bacalso {
+    top: 20%;
+    left: 2%;
+}
+
+.label-ward {
+    top: 48%;
+    left: 51%;
+}
+
+.label-poblacion {
+    bottom: 22%;
+    left: 24%;
+}
+
+.label-tulay {
+    top: 44%;
+    right: 19%;
+}
+
+.label-water {
+    top: 12%;
+    right: 2%;
+    color: #8ca8bd;
+}
+
+
+/* ==================== MAP INCIDENT MARKERS ==================== */
+
+.map-marker {
+    position: absolute;
+    z-index: 4;
+
+    width: 31px;
+    height: 31px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 3px solid #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(30, 45, 65, 0.18);
+
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.map-marker:hover {
+    z-index: 6;
+    transform: scale(1.12);
+}
+
+.marker-critical {
+    top: 39%;
+    left: 45%;
+
+    width: 36px;
+    height: 36px;
+
+    background-color: #e94b61;
+    font-size: 13px;
+}
+
+.marker-id {
+    position: absolute;
+    top: 35px;
+    left: 50%;
+
+    padding: 3px 9px;
+
+    background-color: #191d2b;
+    color: #ffffff;
+    border-radius: 10px;
+
+    font-size: 9px;
+    font-weight: normal;
+    white-space: nowrap;
+
+    transform: translateX(-50%);
+}
+
+.marker-police {
+    top: 65%;
+    left: 24%;
+    background-color: #6879e9;
+}
+
+.marker-fire {
+    top: 59%;
+    left: 66%;
+    background-color: #e9953d;
+}
+
+.marker-caption {
+    position: absolute;
+    top: 34px;
+    left: 50%;
+
+    padding: 3px 9px;
+
+    background-color: #ffffff;
+    color: #353947;
+    border: 1px solid #e5e9ef;
+    border-radius: 12px;
+
+    font-size: 9px;
+    font-weight: normal;
+    white-space: nowrap;
+
+    transform: translateX(-50%);
+}
+
+.marker-unit {
+    top: 25%;
+    left: 72%;
+    background-color: #39a18b;
+    font-size: 17px;
+}
+
+
+/* ==================== MAP LEGEND ==================== */
+
+.map-legend {
+    position: absolute;
+    z-index: 5;
+    bottom: 12px;
+    left: 12px;
+
+    padding: 9px 12px;
+
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    background-color: #ffffff;
+    border: 1px solid #e8ebf1;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(30, 45, 65, 0.05);
+}
+
+.map-legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+
+    color: #697486;
+    font-size: 10px;
+}
+
+.map-legend i {
+    width: 8px;
+    height: 8px;
+    display: inline-block;
+    border-radius: 50%;
+}
+
+.legend-red {
+    background-color: #e94b61;
+}
+
+.legend-orange {
+    background-color: #e9953d;
+}
+
+.legend-green {
+    background-color: #39a18b;
+}
+
+
+/* ==================== MAP ZOOM CONTROLS ==================== */
+
+.map-zoom-controls {
+    position: absolute;
+    z-index: 5;
+    top: 13px;
+    right: 13px;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+    background-color: #ffffff;
+    border: 1px solid #e3e7ee;
+    border-radius: 8px;
+}
+
+.map-zoom-controls button {
+    width: 34px;
+    height: 30px;
+
+    background-color: #ffffff;
+    color: #303544;
+    border: none;
+
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.map-zoom-controls button + button {
+    border-top: 1px solid #e3e7ee;
+}
+
+.map-zoom-controls button:hover {
+    background-color: #edf2f7;
+}
+
+
+/* ==================== UNIT STATUS BAR ==================== */
+
+.unit-status-panel {
+    margin-top: 12px;
+    padding: 12px;
+
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    background-color: #ffffff;
+    border: 1px solid #e1e6ee;
+    border-radius: 15px;
+}
+
+.unit-status-title {
+    color: #303544;
+    font-size: 11px;
+}
+
+.unit-list {
+    flex: 1 1 auto;
+
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.unit-chip {
+    min-height: 28px;
+    padding: 4px 8px;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    background-color: #f5f6fa;
+    border: 1px solid #e3e7ee;
+    border-radius: 20px;
+}
+
+.unit-chip strong {
+    color: #353947;
+    font-size: 10px;
+}
+
+.unit-chip span {
+    padding: 2px 6px;
+    border-radius: 10px;
+    font-size: 9px;
+    white-space: nowrap;
+}
+
+.unit-enroute {
+    background-color: #fff0dc;
+    color: #c48638;
+}
+
+.unit-onscene {
+    background-color: #fde5e9;
+    color: #d94b60;
+}
+
+.unit-standby {
+    background-color: #dff2e9;
+    color: #438d74;
+}
+
+.unit-availability {
+    color: #929aaa;
+    font-size: 10px;
+    white-space: nowrap;
+}
+
+
+/* ==================== INCIDENT QUEUE PANEL ==================== */
+
+.queue-panel {
+    flex: 0 0 360px;
+    width: 360px;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.queue-heading {
+    min-height: 51px;
+    padding: 11px 15px;
+}
+
+.queue-heading h2 {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    white-space: nowrap;
+}
+
+.queue-count {
+    width: 19px;
+    height: 19px;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #252936;
+    color: #ffffff;
+    border-radius: 50%;
+
+    font-size: 10px;
+}
+
+.sort-button {
+    padding: 5px 0;
+
+    background: transparent;
+    border: none;
+
+    color: #5479bd;
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+.sort-button:hover {
+    color: #173c61;
+    text-decoration: underline;
+}
+
+
+/* ==================== INCIDENT QUEUE LIST ==================== */
+
+.queue-list {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.incident-card {
+    padding: 12px;
+
+    background-color: #ffffff;
+    border: 1px solid #e1e6ee;
+    border-radius: 15px;
+}
+
+.urgent-card {
+    background-color: #191d2b;
+    border-color: #191d2b;
+    color: #ffffff;
+}
+
+
+/* ==================== INCIDENT CARD HEADER ==================== */
+
+.incident-top-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+}
+
+.incident-type-icon {
+    width: 37px;
+    height: 37px;
+    flex: 0 0 37px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 9px;
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.medical-icon {
+    background-color: #e3ebfb;
+    color: #4778c7;
+}
+
+.fire-icon {
+    background-color: #fbefdc;
+    color: #c78332;
+}
+
+.police-icon {
+    background-color: #e5e7ff;
+    color: #6879e9;
+}
+
+.disaster-icon {
+    background-color: #dcf2ee;
+    color: #369d90;
+}
+
+.incident-information {
+    flex: 1 1 auto;
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.incident-information strong {
+    overflow-wrap: anywhere;
+    color: #303442;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.urgent-card .incident-information strong {
+    color: #ffffff;
+}
+
+.incident-information small {
+    color: #929aaa;
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+.verified-symbol {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 13px;
+    height: 13px;
+
+    border: 1px solid currentColor;
+    border-radius: 50%;
+
+    font-size: 9px;
+}
+
+.incident-status {
+    flex: 0 0 auto;
+    padding: 4px 8px;
+
+    border-radius: 20px;
+
+    font-size: 9px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.status-critical {
+    background-color: #fde3e7;
+    color: #d84a60;
+}
+
+.status-pending {
+    background-color: #fbefdc;
+    color: #c48638;
+}
+
+.status-review {
+    background-color: #e9edf4;
+    color: #68758a;
+}
+
+.status-verified {
+    background-color: #def1e7;
+    color: #42896f;
+}
+
+
+/* ==================== INCIDENT METADATA ==================== */
+
+.incident-meta {
+    margin-top: 10px;
+
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.incident-meta span {
+    padding: 3px 8px;
+
+    background-color: #f5f6fa;
+    border: 1px solid #e3e7ee;
+    border-radius: 15px;
+
+    color: #697486;
+    font-size: 10px;
+}
+
+.incident-meta small {
+    color: #929aaa;
+    font-size: 10px;
+}
+
+.urgent-card .incident-meta span {
+    background-color: #343847;
+    border-color: #4a4e5b;
+    color: #e5e7ee;
+}
+
+.urgent-card .incident-meta small {
+    color: #b0b6c4;
+}
+
+
+/* ==================== INCIDENT ACTION BUTTONS ==================== */
+
+.incident-actions {
+    margin-top: 10px;
+
+    display: flex;
+    align-items: stretch;
+    gap: 7px;
+}
+
+.incident-actions button {
+    min-width: 0;
+    min-height: 35px;
+    padding: 7px 9px;
+
+    border: 1px solid transparent;
+    border-radius: 8px;
+
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.verify-button {
+    flex: 1 1 0;
+    background-color: #e4ecfc;
+    color: #4b79c1;
+}
+
+.verify-button:hover {
+    background-color: #d5e2fa;
+}
+
+.dispatch-button {
+    flex: 1.2 1 0;
+    background-color: #def1e7;
+    color: #47896f;
+}
+
+.dispatch-button:hover {
+    background-color: #cce9dc;
+}
+
+.call-button {
+    flex: 0 0 35px;
+    background-color: #f5f6fa;
+    border-color: #e3e7ee !important;
+    color: #687386;
+    font-size: 16px !important;
+}
+
+.call-button:hover {
+    background-color: #e9edf4;
+}
+
+.urgent-card .call-button {
+    background-color: #343847;
+    border-color: #4a4e5b !important;
+    color: #ffffff;
+}
+
+
+/* ==================== QUEUE FOOTER ==================== */
+
+.queue-footer {
+    padding: 11px 13px;
+    border-top: 1px solid #e8ebf1;
+}
+
+.queue-footer button {
+    width: 100%;
+    min-height: 38px;
+    padding: 9px 12px;
+
+    background-color: #f5f6fa;
+    border: 1px solid #e3e7ee;
+    border-radius: 8px;
+
+    color: #303544;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.queue-footer button:hover {
+    background-color: #eaf0f7;
+}
+
+
+/* ==================== PROTOTYPE NOTICE ==================== */
+
+.prototype-notice {
+    margin: 13px 2px 0;
+    color: #929aaa;
+    font-size: 10px;
+    line-height: 1.6;
+}
+
+
+/* ==================== DEMONSTRATION TOAST ==================== */
+
+.demo-toast {
+    position: fixed;
+    z-index: 20;
+    right: 22px;
+    bottom: 22px;
+
+    max-width: 350px;
+    padding: 13px 17px;
+
+    background-color: #191d2b;
+    color: #ffffff;
+    border: 1px solid #343847;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(25, 29, 43, 0.18);
+
+    font-size: 12px;
+    line-height: 1.6;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+}
+
+.demo-toast.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+
+/* ==================== SEARCH AND FILTER STATES ==================== */
+
+.incident-card.search-hidden {
+    display: none;
+}
+
+.incident-card.action-highlight {
+    outline: 2px solid #8bc9b4;
+    outline-offset: 2px;
+}

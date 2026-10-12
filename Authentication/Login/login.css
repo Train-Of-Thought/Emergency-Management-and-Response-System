@@ -1,0 +1,565 @@
+
+/* ==================== LOGIN PAGE LAYOUT ==================== */
+
+.auth-page {
+    width: 100%;
+    min-height: 100vh;
+    padding: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+
+    background-color: var(--emrs-background);
+}
+
+
+/* ==================== LOGIN FORM PANEL ==================== */
+
+.login-left {
+    flex: 1 1 480px;
+    min-width: 0;
+    max-width: 600px;
+    padding: 45px 55px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background-color: var(--emrs-white);
+    border-radius: 16px 0 0 16px;
+}
+
+
+/* ==================== EMRS BRAND ==================== */
+
+.auth-logo {
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    gap: 12px;
+    margin-bottom: 45px;
+}
+
+.auth-logo-icon {
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--emrs-navy);
+    color: var(--emrs-white);
+    border-radius: 12px;
+
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.auth-logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.4;
+}
+
+.auth-logo-text strong {
+    color: var(--emrs-navy);
+    font-size: 22px;
+    letter-spacing: 1px;
+}
+
+.auth-logo-text small {
+    color: #6b7b8d;
+    font-size: 11px;
+}
+
+
+/* ==================== LOGIN INTRODUCTION ==================== */
+
+.auth-heading {
+    margin-bottom: 28px;
+}
+
+.auth-label {
+    margin-bottom: 10px;
+    color: var(--emrs-teal);
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+.auth-heading h1 {
+    margin-bottom: 10px;
+    color: var(--emrs-navy);
+    font-size: clamp(28px, 3vw, 36px);
+    line-height: 1.3;
+}
+
+.auth-heading > p:last-child {
+    max-width: 380px;
+    color: #64788b;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+
+/* ==================== FORM FIELDS ==================== */
+
+#loginForm {
+    width: 100%;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    color: #344b63;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.form-control {
+    width: 100%;
+    min-height: 46px;
+    padding: 12px 14px;
+
+    background-color: #ffffff;
+    color: #24364b;
+    border: 1px solid #d7e1e9;
+    border-radius: 7px;
+
+    font-family: inherit;
+    font-size: 13px;
+}
+
+.form-control::placeholder {
+    color: #94a3b3;
+}
+
+.form-control:focus {
+    outline: 2px solid #bce3e6;
+    border-color: var(--emrs-teal);
+}
+
+
+/* ==================== PASSWORD FIELD ==================== */
+
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-wrapper .form-control {
+    padding-right: 75px;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 12px;
+
+    padding: 5px;
+    background: transparent;
+    border: none;
+
+    color: var(--emrs-teal);
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.password-toggle:focus-visible {
+    outline: 2px solid var(--emrs-teal);
+    outline-offset: 2px;
+}
+
+
+/* ==================== FORM OPTIONS ==================== */
+
+.form-options {
+    margin: 2px 0 24px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.remember-option {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    color: #64788b;
+    font-size: 12px;
+}
+
+.remember-option input {
+    accent-color: var(--emrs-teal);
+}
+
+.form-hint {
+    color: #8493a2;
+    font-size: 11px;
+}
+
+
+/* ==================== SIGN IN BUTTON ==================== */
+
+.auth-submit {
+    width: 100%;
+    min-height: 48px;
+    padding: 13px 20px;
+
+    background-color: var(--emrs-navy);
+    color: #ffffff;
+    border: 1px solid var(--emrs-navy);
+    border-radius: 7px;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.auth-submit:hover {
+    background-color: #24547e;
+}
+
+.auth-submit:focus-visible {
+    outline: 3px solid #bce3e6;
+    outline-offset: 3px;
+}
+
+
+/* ==================== FORM FEEDBACK ==================== */
+
+.form-message {
+    min-height: 20px;
+    margin-top: 12px;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.form-message.error {
+    color: var(--emrs-red);
+}
+
+.form-message.success {
+    color: #267b63;
+}
+
+
+/* ==================== REGISTRATION LINK ==================== */
+
+.auth-switch {
+    margin-top: 22px;
+    color: #64788b;
+    font-size: 12px;
+    text-align: center;
+}
+
+.auth-switch a {
+    color: var(--emrs-teal);
+    font-weight: bold;
+}
+
+.auth-switch a:hover {
+    text-decoration: underline;
+}
+
+
+/* ==================== LOGIN FOOTER ==================== */
+
+.auth-footer {
+    margin-top: 35px;
+    padding-top: 20px;
+
+    border-top: 1px solid #e5ebf0;
+    text-align: center;
+}
+
+.auth-footer p {
+    margin-bottom: 5px;
+    color: #8493a2;
+    font-size: 10px;
+    line-height: 1.7;
+}
+
+
+/* ==================== ILLUSTRATION PANEL ==================== */
+
+.login-right {
+    flex: 1 1 480px;
+    min-width: 0;
+    max-width: 650px;
+    padding: 45px 35px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+    background-color: #eaf5f7;
+    border-radius: 0 16px 16px 0;
+}
+
+.illustration-content {
+    width: 100%;
+    max-width: 480px;
+    text-align: center;
+}
+
+.illustration-symbol {
+    width: 58px;
+    height: 58px;
+    margin: 0 auto 25px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    background-color: #d5ecee;
+    border-radius: 18px;
+}
+
+.symbol-cross {
+    color: var(--emrs-teal);
+    font-size: 40px;
+    font-weight: normal;
+    line-height: 1;
+}
+
+.symbol-dot {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+
+    width: 10px;
+    height: 10px;
+
+    background-color: var(--emrs-red);
+    border: 2px solid #eaf5f7;
+    border-radius: 50%;
+}
+
+.illustration-label {
+    margin-bottom: 12px;
+    color: var(--emrs-teal);
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.illustration-content h2 {
+    color: var(--emrs-navy);
+    font-size: clamp(26px, 3vw, 38px);
+    line-height: 1.3;
+}
+
+.illustration-description {
+    max-width: 360px;
+    margin: 15px auto 0;
+
+    color: #617d91;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+
+/* ==================== COMMUNITY ILLUSTRATION ==================== */
+
+.community-illustration {
+    height: 230px;
+    margin-top: 25px;
+
+    position: relative;
+    overflow: hidden;
+
+    background-color: #d9eef2;
+    border-radius: 14px;
+}
+
+.cloud {
+    position: absolute;
+    height: 20px;
+    background-color: #f7fcfd;
+    border-radius: 20px;
+}
+
+.cloud-one {
+    width: 100px;
+    top: 35px;
+    left: 10%;
+}
+
+.cloud-two {
+    width: 75px;
+    top: 55px;
+    right: 10%;
+}
+
+.hill {
+    position: absolute;
+    bottom: -55px;
+    border-radius: 50% 50% 0 0;
+}
+
+.hill-back {
+    width: 115%;
+    height: 160px;
+    left: -15%;
+    background-color: #acdce3;
+    transform: rotate(-7deg);
+}
+
+.hill-front {
+    width: 120%;
+    height: 115px;
+    left: 15%;
+    bottom: -45px;
+    background-color: #80c5d0;
+    transform: rotate(7deg);
+}
+
+
+/* ==================== COMMUNITY HOUSES ==================== */
+
+.house {
+    position: absolute;
+    bottom: 48px;
+
+    width: 58px;
+    height: 48px;
+
+    background-color: #ffffff;
+    border: 2px solid #a2cbd5;
+    border-radius: 3px;
+}
+
+.house::before {
+    content: "";
+    position: absolute;
+    width: 42px;
+    height: 42px;
+    top: -23px;
+    left: 5px;
+
+    background-color: #7eafb9;
+    transform: rotate(45deg);
+    border-radius: 3px;
+}
+
+.house span {
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    left: 21px;
+
+    width: 13px;
+    height: 23px;
+
+    background-color: #c7e6eb;
+    border: 1px solid #a2cbd5;
+}
+
+.house-one {
+    left: 12%;
+    bottom: 44px;
+    transform: scale(0.8);
+}
+
+.house-two {
+    left: 42%;
+    bottom: 55px;
+    transform: scale(1.1);
+}
+
+.house-three {
+    right: 10%;
+    bottom: 43px;
+    transform: scale(0.85);
+}
+
+
+/* ==================== LOCATION MARKER ==================== */
+
+.location-pin {
+    position: absolute;
+    z-index: 3;
+    left: 50%;
+    top: 47px;
+
+    width: 25px;
+    height: 25px;
+
+    background-color: var(--emrs-red);
+    border: 3px solid #ffffff;
+    border-radius: 50% 50% 50% 0;
+
+    transform: translateX(-50%) rotate(-45deg);
+}
+
+.location-pin span {
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    top: 6px;
+    left: 6px;
+
+    background-color: #ffffff;
+    border-radius: 50%;
+}
+
+
+/* ==================== COMMUNITY FIGURES ==================== */
+
+.person {
+    position: absolute;
+    z-index: 4;
+    bottom: 0;
+
+    width: 24px;
+    height: 52px;
+
+    background-color: var(--emrs-navy);
+    border-radius: 12px 12px 0 0;
+}
+
+.person::before {
+    content: "";
+    position: absolute;
+    top: -17px;
+    left: 3px;
+
+    width: 18px;
+    height: 18px;
+
+    background-color: #d6aa8b;
+    border-radius: 50%;
+}
+
+.person-one {
+    left: 31%;
+}
+
+.person-two {
+    right: 30%;
+    height: 43px;
+    background-color: var(--emrs-teal);
+}
+
+.illustration-caption {
+    margin-top: 20px;
+    color: #617d91;
+    font-size: 12px;
+    font-weight: 600;
+}

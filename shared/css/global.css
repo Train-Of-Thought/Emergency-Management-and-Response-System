@@ -1,0 +1,104 @@
+
+/* ==================== GLOBAL COLOR VARIABLES ==================== */
+
+:root {
+    --emrs-navy: #173C61;
+    --emrs-red: #C94C4C;
+    --emrs-teal: #299AAB;
+    --emrs-background: #F5F9FA;
+    --emrs-white: #FFFFFF;
+}
+
+
+/* ==================== GLOBAL RESET ==================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #ffffff;
+    color: #24364b;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* ==================== GLOBAL CONTAINER ==================== */
+
+.container {
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+
+/* ==================== GLOBAL BUTTONS ==================== */
+
+.button {
+    min-width: 150px;
+    padding: 13px 24px;
+    border: 1px solid #173c61;
+    border-radius: 8px;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+/* ==================== PRIMARY BUTTON ==================== */
+
+.button-primary {
+    background-color: #173c61;
+    color: #ffffff;
+}
+
+
+/* ==================== SECONDARY BUTTON ==================== */
+
+.button-secondary {
+    background-color: #ffffff;
+    color: #173c61;
+}
+
+
+/* ==================== GLOBAL BUTTON HOVER EFFECTS ==================== */
+
+.button-primary:hover {
+    background-color: #24547e;
+    border-color: var(--emrs-red);
+}
+
+.button-secondary:hover {
+    background-color: #f0f6f8;
+    border-color: var(--emrs-red);
+}
+
+
+/* ==================== GLOBAL SECTION LABEL ==================== */
+
+.section-label {
+    margin-bottom: 12px;
+    color: #299aab;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+    

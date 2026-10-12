@@ -1,0 +1,209 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ==================== DOCUMENT SETTINGS ==================== -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account | EMRS</title>
+
+    <!-- ==================== STYLESHEETS ==================== -->
+
+    <link rel="stylesheet" href="../../shared/css/global.css">
+    <link rel="stylesheet" href="register.css">
+
+    <!-- ==================== PAGE SCRIPT ==================== -->
+
+    <script src="register.js" defer></script>
+</head>
+<body>
+
+    <!-- ==================== REGISTRATION PAGE ==================== -->
+
+    <main class="auth-page">
+
+        <!-- ==================== REGISTRATION FORM PANEL ==================== -->
+
+        <section class="register-left">
+
+            <!-- ==================== EMRS BRAND ==================== -->
+
+            <a href="../../Landing/index.html" class="auth-logo">
+                <span class="auth-logo-icon">E</span>
+
+                <span class="auth-logo-text">
+                    <strong>EMRS</strong>
+                    <small>Minglanilla, Cebu</small>
+                </span>
+            </a>
+
+            <!-- ==================== REGISTRATION INTRODUCTION ==================== -->
+
+            <div class="auth-heading">
+                <p class="auth-label">JOIN OUR COMMUNITY</p>
+                <h1>Create your account</h1>
+                <p>
+                    Join EMRS and help build a more organized
+                    and prepared community.
+                </p>
+            </div>
+
+            <!-- ==================== REGISTRATION FORM ==================== -->
+
+            <form id="registerForm">
+
+                <div class="form-group">
+                    <label for="registerName">Full Name</label>
+
+                    <input
+                        type="text"
+                        id="registerName"
+                        name="fullName"
+                        class="form-control"
+                        placeholder="Enter your full name"
+                        autocomplete="name"
+                        maxlength="100"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="registerEmail">Email Address</label>
+
+                    <input
+                        type="email"
+                        id="registerEmail"
+                        name="email"
+                        class="form-control"
+                        placeholder="Enter your email address"
+                        autocomplete="email"
+                        maxlength="254"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="registerPassword">Password</label>
+
+                    <div class="password-wrapper">
+                        <input
+                            type="password"
+                            id="registerPassword"
+                            name="password"
+                            class="form-control"
+                            placeholder="Create a password"
+                            autocomplete="new-password"
+                            minlength="8"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            id="toggleRegisterPassword"
+                            aria-label="Show password"
+                            aria-pressed="false"
+                        >Show</button>
+                    </div>
+
+                    <p class="field-hint">
+                        Use at least 8 characters for this prototype.
+                    </p>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+
+                    <div class="password-wrapper">
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            name="confirmPassword"
+                            class="form-control"
+                            placeholder="Enter your password again"
+                            autocomplete="new-password"
+                            minlength="8"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            id="toggleConfirmPassword"
+                            aria-label="Show confirmation password"
+                            aria-pressed="false"
+                        >Show</button>
+                    </div>
+                </div>
+
+                <!-- ==================== REGISTRATION SUBMISSION ==================== -->
+
+                <button type="submit" class="auth-submit">Create Account</button>
+
+                <p
+                    id="registerMessage"
+                    class="form-message"
+                    role="status"
+                    aria-live="polite"
+                ></p>
+
+            </form>
+
+            <!-- ==================== LOGIN LINK ==================== -->
+
+            <p class="auth-switch">
+                Already have an account?
+                <a href="../Login/login.html">Sign in</a>
+            </p>
+
+            <!-- ==================== REGISTRATION FOOTER ==================== -->
+
+            <div class="auth-footer">
+                <p>Your information is for this frontend demonstration only.</p>
+                <p>This prototype does not create or verify real accounts.</p>
+            </div>
+
+        </section>
+
+        <!-- ==================== REGISTRATION ILLUSTRATION PANEL ==================== -->
+
+        <section class="register-right">
+            <div class="register-illustration-content">
+
+                <div class="register-symbol">
+                    <span>+</span>
+                </div>
+
+                <p class="illustration-label">COMMUNITY PREPAREDNESS</p>
+                <h2>Be Prepared.<br>Make a Difference.</h2>
+
+                <p class="illustration-description">
+                    Every prepared community takes a step toward
+                    a safer and more resilient future.
+                </p>
+
+                <!-- ==================== DECORATIVE COMMUNITY SCENE ==================== -->
+
+                <div class="register-scene" aria-hidden="true">
+                    <div class="register-cloud register-cloud-one"></div>
+                    <div class="register-cloud register-cloud-two"></div>
+
+                    <div class="register-hill register-hill-back"></div>
+                    <div class="register-hill register-hill-front"></div>
+
+                    <div class="register-house register-house-one"></div>
+                    <div class="register-house register-house-two"></div>
+                    <div class="register-house register-house-three"></div>
+
+                    <div class="register-cross">+</div>
+                </div>
+
+                <p class="illustration-caption">Prepared today. Safer tomorrow.</p>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>
