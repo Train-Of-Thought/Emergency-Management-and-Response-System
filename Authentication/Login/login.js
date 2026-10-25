@@ -1,54 +1,86 @@
+/* ==================== LOGIN ELEMENTS ==================== */
+const pinSlots = Array.from(document.querySelectorAll(".pin-slot"));
+const keypadKeys = document.querySelectorAll("[data-digit]");
+const deleteDigitButton = document.getElementById("deleteDigit");
+const loginButton = document.getElementById("loginButton");
+const loginMessage = document.getElementById("loginMessage");
+const changeResidentButton = document.getElementById("changeResident");
+const forgotPinButton = document.getElementById("forgotPin");
+const biometricButton = document.getElementById("biometricButton");
+const otpButton = document.getElementById("otpButton");
+let enteredPin = "";
 
-/* ==================== LOGIN FORM INTERACTIONS ==================== */
-
-document.addEventListener("DOMContentLoaded", function () {
-    const loginForm = document.getElementById("loginForm");
-    const loginEmail = document.getElementById("loginEmail");
-    const loginPassword = document.getElementById("loginPassword");
-    const toggleLoginPassword = document.getElementById("toggleLoginPassword");
-    const loginMessage = document.getElementById("loginMessage");
-
-
-    /* ==================== TOGGLE PASSWORD VISIBILITY ==================== */
-
-    toggleLoginPassword.addEventListener("click", function () {
-        const isPasswordHidden = loginPassword.type === "password";
-
-        loginPassword.type = isPasswordHidden ? "text" : "password";
-        toggleLoginPassword.textContent = isPasswordHidden ? "Hide" : "Show";
-
-        toggleLoginPassword.setAttribute(
-            "aria-label",
-            isPasswordHidden ? "Hide password" : "Show password"
-        );
-
-        toggleLoginPassword.setAttribute(
-            "aria-pressed",
-            String(isPasswordHidden)
-        );
+/* ==================== UPDATE PIN DISPLAY ==================== */
+function updatePinDisplay() {
+    pinSlots.forEach(function (slot, index) {
+        slot.classList.toggle("filled", index < enteredPin.length);
     });
+}
 
+/* ==================== DISPLAY MESSAGE ==================== */
+function showMessage(message, type) {
+    loginMessage.textContent = message;
+    loginMessage.className = "form-message " + type;
+}
 
-    /* ==================== LOGIN FORM SUBMISSION ==================== */
-
-    loginForm.addEventListener("submit", function (event) {
-        event.preventDefault();
-
-        loginMessage.textContent = "";
-        loginMessage.className = "form-message";
-
-        const email = loginEmail.value.trim();
-        const password = loginPassword.value;
-
-        if (!email || !password) {
-            loginMessage.textContent = "Please enter your email and password.";
-            loginMessage.classList.add("error");
-            return;
-        }
-
-        loginMessage.textContent =
-            "Login is currently a frontend demonstration. Account verification and automatic dashboard redirection will be implemented with authentication.";
-
-        loginMessage.classList.add("success");
+/* ==================== NUMERIC KEYPAD ==================== */
+keypadKeys.forEach(function (key) {
+    key.addEventListener("click", function () {
+        if (enteredPin.length >= 4) return;
+        enteredPin += key.dataset.digit;
+        updatePinDisplay();
+        showMessage("", "");
     });
+});
+
+/* ==================== DELETE PIN DIGIT ==================== */
+deleteDigitButton.addEventListener("click", function () {
+    enteredPin = enteredPin.slice(0, -1);
+    updatePinDisplay();
+    showMessage("", "");
+});
+
+/* ==================== LOGIN DEMONSTRATION ==================== */
+loginButton.addEventListener("click", function () {
+    if (enteredPin.length !== 4) {
+        showMessage("Please enter all four digits of your MPIN.", "error");
+        return;
+    }
+    showMessage("Prototype only: the MPIN has not been authenticated. A secure backend is required to sign in.", "error");
+});
+
+/* ==================== ALTERNATE LOGIN OPTIONS ==================== */
+forgotPinButton.addEventListener("click", function () {
+    showMessage("MPIN reset via SMS OTP is planned but not connected in this prototype.", "error");
+});
+
+biometricButton.addEventListener("click", function () {
+    showMessage("Biometric login is a visual prototype only and is not connected.", "error");
+});
+
+otpButton.addEventListener("click", function () {
+    showMessage("SMS OTP login is a visual prototype only. No message will be sent.", "error");
+});
+
+changeResidentButton.addEventListener("click", function () {
+    enteredPin = "";
+    updatePinDisplay();
+    showMessage("Resident selection is not connected in this prototype.", "error");
+});
+
+/* ==================== KEYBOARD SUPPORT ==================== */
+document.addEventListener("keydown", function (event) {
+    if (/^\d$/.test(event.key) && enteredPin.length < 4) {
+        enteredPin += event.key;
+        updatePinDisplay();
+        showMessage("", "");
+    }
+    if (event.key === "Backspace") {
+        enteredPin = enteredPin.slice(0, -1);
+        updatePinDisplay();
+        showMessage("", "");
+    }
+    if (event.key === "Enter") {
+        loginButton.click();
+    }
 });

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Identity Verification | EMRS</title>
+    <link rel="stylesheet" href="../../shared/css/global.css">
+    <link rel="stylesheet" href="register.css">
+</head>
+<body class="registration-page">
+
+    <!-- ==================== VERIFICATION HEADER ==================== -->
+    <header class="registration-header">
+        <a href="../../Landing/index.html" class="auth-brand">
+            <span class="brand-icon">+</span>
+            <span class="brand-text">
+                <strong>Minglanilla Emergency System</strong>
+                <small>Minglanilla, Cebu • 24/7 Rescue</small>
+            </span>
+        </a>
+        <span class="lgu-label">LGU</span>
+        <div class="registration-heading">
+            <h1>Identity Verification (KYC)</h1>
+            <div class="progress-label">
+                <span>Step 2 of 2 — Verify identity</span>
+                <span>92%</span>
+            </div>
+            <div class="progress-track">
+                <span class="progress-full"></span>
+            </div>
+        </div>
+    </header>
+
+    <main class="registration-main">
+        <section class="why-verify">
+            <span class="why-icon">!</span>
+            <div>
+                <h2>Why we verify</h2>
+                <p>Identity verification can help reduce false emergency reports and confirm resident identity. Submissions must be reviewed by authorized personnel.</p>
+            </div>
+        </section>
+
+        <form id="verificationForm" class="registration-card verification-card" novalidate>
+            <div class="form-section">
+                <label for="idType">Government / Valid ID Type <span class="required">*</span></label>
+                <select id="idType" name="idType" required>
+                    <option value="">Select ID type</option>
+                    <option value="National ID (PhilSys)">National ID (PhilSys)</option>
+                    <option value="Driver's License">Driver's License</option>
+                    <option value="UMID / SSS">UMID / SSS</option>
+                    <option value="Student / School ID">Student / School ID</option>
+                    <option value="Passport">Passport</option>
+                    <option value="Other valid ID">Other valid ID</option>
+                </select>
+                <div class="id-type-options">
+                    <button type="button" data-id-type="National ID (PhilSys)">▣ National ID</button>
+                    <button type="button" data-id-type="Driver's License">▱ Driver's License</button>
+                    <button type="button" data-id-type="UMID / SSS">▤ UMID / SSS</button>
+                    <button type="button" data-id-type="Student / School ID">◇ Student / School</button>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <label for="idPhoto">ID Photo Capture <span class="required">*</span></label>
+                <div class="upload-area">
+                    <div class="camera-icon">◎</div>
+                    <strong>Upload / Take Photo of Valid ID</strong>
+                    <p>JPG or PNG • Max 5 MB • Ensure all corners are visible</p>
+                    <div class="upload-actions">
+                        <label for="idPhoto" class="upload-button">⇧ Upload</label>
+                        <label for="idCamera" class="camera-button">◎ Camera</label>
+                    </div>
+                    <input type="file" id="idPhoto" accept="image/jpeg,image/png" hidden>
+                    <input type="file" id="idCamera" accept="image/jpeg,image/png" capture="environment" hidden>
+                    <img id="imagePreview" class="image-preview" alt="Selected ID preview" hidden>
+                    <p id="fileMessage" class="form-message" role="status" aria-live="polite"></p>
+                </div>
+                <div class="sample-quality">
+                    <span></span>
+                    <strong>Sample: good lighting, no glare</strong>
+                </div>
+            </div>
+
+            <label class="consent-box">
+                <input type="checkbox" id="consent" required>
+                <span>I understand that this academic prototype only previews the selected image locally. Real identity documents require an authorized and secure system.</span>
+            </label>
+
+            <p id="verificationMessage" class="form-message" role="status" aria-live="polite"></p>
+            <button type="submit" class="submit-verification">Submit &amp; Complete Registration</button>
+            <a href="register.html" class="back-link">Back to account details</a>
+        </form>
+
+        <p class="verification-footer">♢ ID images are previewed locally only; they are not uploaded or reviewed by MDRRMO in this prototype.</p>
+    </main>
+
+    <script src="register.js"></script>
+</body>
+</html>
