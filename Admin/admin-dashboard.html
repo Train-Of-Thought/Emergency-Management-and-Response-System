@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ==================== DOCUMENT SETTINGS ==================== -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrator Dashboard | EMRS</title>
+
+    <!-- ==================== STYLESHEETS ==================== -->
+
+    <link rel="stylesheet" href="../shared/css/global.css">
+    <link rel="stylesheet" href="admin-dashboard.css">
+
+    <!-- ==================== PAGE SCRIPT ==================== -->
+
+    <script src="admin-dashboard.js" defer></script>
+</head>
+<body class="admin-page">
+
+    <!-- ==================== TOP BAR ==================== -->
+
+    <header class="admin-topbar">
+
+        <a href="../Landing/index.html" class="admin-brand">
+            <span class="admin-brand-icon">E</span>
+            <span class="admin-brand-text">
+                <strong>EMRS</strong>
+                <small>Administration</small>
+            </span>
+        </a>
+
+        <!-- ==================== TAB NAVIGATION ==================== -->
+
+        <nav class="admin-tabs" aria-label="Administrator sections">
+            <button type="button" class="admin-tab active" data-view="overview">Overview</button>
+            <button type="button" class="admin-tab" data-view="residents">Residents</button>
+            <button type="button" class="admin-tab" data-view="personnel">Personnel</button>
+            <button type="button" class="admin-tab" data-view="dispatchers">Dispatchers</button>
+            <button type="button" class="admin-tab" data-view="verification">
+                Identity Verification
+                <span class="tab-count" id="verificationTabCount">0</span>
+            </button>
+            <button type="button" class="admin-tab" data-view="requests">
+                Registration Requests
+                <span class="tab-count" id="requestsTabCount">0</span>
+            </button>
+            <button type="button" class="admin-tab" data-view="settings">System Settings</button>
+            <button type="button" class="admin-tab" data-view="logs">Activity Logs</button>
+        </nav>
+
+        <div class="admin-user">
+            <span class="admin-user-avatar">AD</span>
+            <span class="admin-user-text">
+                <strong>System Administrator</strong>
+                <small>Sample account</small>
+            </span>
+            <a href="../Landing/index.html" class="admin-signout">Sign Out</a>
+        </div>
+
+    </header>
+
+    <!-- ==================== PROTOTYPE NOTICE ==================== -->
+
+    <div class="prototype-notice">
+        <strong>Prototype</strong>
+        <span>All data on this page is sample data. Nothing is saved, sent, or connected to a real service, and changes reset when the page is reloaded.</span>
+    </div>
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+
+    <main class="admin-main">
+
+        <!-- ==================== OVERVIEW VIEW ==================== -->
+
+        <section class="admin-view active" id="view-overview">
+
+            <div class="view-heading">
+                <div>
+                    <p class="section-label">ADMINISTRATOR</p>
+                    <h1>System Overview</h1>
+                    <p class="view-description">Accounts, verification, and a high-level look at system activity in Minglanilla, Cebu.</p>
+                </div>
+            </div>
+
+            <!-- ==================== ACCOUNT STATISTICS ==================== -->
+
+            <div class="stat-cards" id="accountStats"></div>
+
+            <div class="overview-columns">
+
+                <!-- ==================== LEFT COLUMN ==================== -->
+
+                <div class="overview-column overview-column-main">
+
+                    <!-- ==================== NEEDS ATTENTION ==================== -->
+
+                    <article class="panel">
+                        <div class="panel-heading">
+                            <h2>Needs Your Attention</h2>
+                            <span class="panel-note">Pending administrative decisions</span>
+                        </div>
+
+                        <div class="attention-list" id="attentionList"></div>
+                    </article>
+
+                    <!-- ==================== RECENT ADMINISTRATIVE ACTIVITY ==================== -->
+
+                    <article class="panel">
+                        <div class="panel-heading">
+                            <h2>Recent Administrative Activity</h2>
+                            <button type="button" class="link-button" data-goto="logs">View all logs</button>
+                        </div>
+
+                        <div class="log-list" id="recentActivity"></div>
+                    </article>
+
+                </div>
+
+                <!-- ==================== RIGHT COLUMN ==================== -->
+
+                <div class="overview-column overview-column-side">
+
+                    <!-- ==================== OPERATIONAL SNAPSHOT ==================== -->
+
+                    <article class="panel">
+                        <div class="panel-heading">
+                            <h2>Operational Snapshot</h2>
+                            <span class="panel-note">Totals only</span>
+                        </div>
+
+                        <div class="snapshot-numbers" id="snapshotNumbers"></div>
+
+                        <h3 class="panel-subheading">Reports by category</h3>
+                        <div class="category-bars" id="categoryBars"></div>
+
+                        <p class="restriction-note">
+                            Aggregated counts only. Individual emergency reports, incident locations, and dispatching are handled by Dispatchers and are not available to Administrators.
+                        </p>
+                    </article>
+
+                    <!-- ==================== SYSTEM STATUS ==================== -->
+
+                    <article class="panel">
+                        <div class="panel-heading">
+                            <h2>System Status</h2>
+                        </div>
+
+                        <ul class="status-list">
+                            <li><span class="status-dot status-dot-ok"></span><span>Web application</span><em>Prototype</em></li>
+                            <li><span class="status-dot status-dot-idle"></span><span>Database</span><em>Not connected</em></li>
+                            <li><span class="status-dot status-dot-idle"></span><span>SMS / OTP service</span><em>Not connected</em></li>
+                            <li><span class="status-dot status-dot-idle"></span><span>Document storage</span><em>Not connected</em></li>
+                        </ul>
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ==================== RESIDENTS VIEW ==================== -->
+
+        <section class="admin-view" id="view-residents">
+
+            <div class="view-heading">
+                <div>
+                    <p class="section-label">ACCOUNT MANAGEMENT</p>
+                    <h1>Residents</h1>
+                    <p class="view-description">Residents get basic access right after registering. Account status and identity verification are tracked separately.</p>
+                </div>
+            </div>
+
+            <div class="toolbar">
+                <input type="search" id="residentSearch" class="toolbar-search" placeholder="Search by name, ID, or barangay" autocomplete="off">
+
+                <select id="residentStatusFilter" class="toolbar-select" aria-label="Filter by account status">
+                    <option value="all">All account statuses</option>
+                    <option value="Active">Active</option>
+                    <option value="Suspended">Suspended</option>
+                </select>
+
+                <select id="residentVerificationFilter" class="toolbar-select" aria-label="Filter by verification status">
+                    <option value="all">All verification statuses</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Verified">Verified</option>
+                    <option value="Rejected">Rejected</option>
+                </select>
+            </div>
+
+            <div class="record-list" id="residentList"></div>
+
+        </section>
+
+        <!-- ==================== PERSONNEL VIEW ==================== -->
+
+        <section class="admin-view" id="view-personnel">
+
+            <div class="view-heading">
+                <div>
+                    <p class="section-label">ACCOUNT MANAGEMENT</p>
+                    <h1>Emergency Personnel</h1>
+                    <p class="view-description">Create accounts directly, or approve requests under Registration Requests.</p>
+                </div>
+
+                <button type="button" class="button button-primary" data-create="Personnel">+ Create Personnel Account</button>
+            </div>
+
+            <div class="record-list" id="personnelList"></div>
+
+        </section>
+
+        <!-- ==================== DISPATCHERS VIEW ==================== -->
+
+        <section class="admin-view" id="view-dispatchers">
+
+            <div class="view-heading">
+                <div>
+                    <p class="section-label">ACCOUNT MANAGEMENT</p>
+                    <h1>Dispatchers</h1>
+                    <p class="view-description">Create accounts directly, or approve requests under Registration Requests.</p>
+                </div>
+
+                <button type="button" class="button button-primary" data-create="Dispatcher">+ Create Dispatcher Account</button>
+            </div>
+
+            <div class="record-list" id="dispatcherList"></div>
+
+        </section>
+
+        <!-- ==================== IDENTITY VERIFICATION VIEW ==================== -->
+
+        <section class="admin-view" id="view-verification">
+
+            <div class="view-heading">
+                <div>
+                    <p class="section-label">RESIDENT VERIFICATION</p>
+                    <h1>Identity Verification</h1>
+                    <p class="view-description">Review identification documents submitted by residents. Residents can still report emergencies while verification is pending.</p>
+                </div>
+            </div>
+
+            <h2 class="list-title">Awaiting review</h2>
+            <div class="record-list" id="verificationPendingList"></div>
+
+            <h2 class="list-title">Already reviewed</h2>
+            <div class="record-list" id="verificationReviewedList"></div>
+
+        </section>
+
+        <!-- ==================== REGISTRATION REQUESTS VIEW ==================== -->
+
+        <section class="admin-view" id="view-requests">
+
+            <div class="view-heading">
+                <div>
+                    <p class="section-label">APPROVALS</p>
+                    <h1>Registration Requests</h1>
+                    <p class="view-description">Personnel and Dispatcher accounts that were requested instead of created directly.</p>
+                </div>
+            </div>
+
+            <div class="toolbar">
+                <select id="requestTypeFilter" class="toolbar-select" aria-label="Filter by request type">
+                    <option value="all">All requests</option>
+                    <option value="Personnel">Personnel</option>
+                    <option value="Dispatcher">Dispatcher</option>
+                </select>
+            </div>
+
+            <h2 class="list-title">Pending</h2>
+            <div class="record-list" id="requestPendingList"></div>
+
+            <h2 class="list-title">Decided</h2>
+            <div class="record-list" id="requestDecidedList"></div>
+
+        </section>
+
+        <!-- ==================== SYSTEM SETTINGS VIEW ==================== -->
+
+        <section class="admin-view" id="view-settings">
+
+            <div class="view-heading">
+                <div>
+                    <p class="section-label">CONFIGURATION</p>
+                    <h1>System Settings</h1>
+                    <p class="view-description">General account and administrative settings.</p>
+                </div>
+            </div>
+
+            <div class="settings-columns">
+
+                <article class="panel settings-panel">
+                    <div class="panel-heading">
+                        <h2>Account Settings</h2>
+                    </div>
+
+                    <label class="setting-row">
+                        <span class="setting-text">
+                            <strong>Allow resident self-registration</strong>
+                            <small>Residents can create their own account.</small>
+                        </span>
+                        <input type="checkbox" id="settingSelfRegistration" checked>
+                    </label>
+
+                    <label class="setting-row">
+                        <span class="setting-text">
+                            <strong>Ask residents to submit an ID</strong>
+                            <small>Show the identity verification prompt after registration.</small>
+                        </span>
+                        <input type="checkbox" id="settingAskId" checked>
+                    </label>
+
+                    <label class="setting-row">
+                        <span class="setting-text">
+                            <strong>Accept personnel and dispatcher requests</strong>
+                            <small>Allow registration requests to be submitted for approval.</small>
+                        </span>
+                        <input type="checkbox" id="settingAcceptRequests" checked>
+                    </label>
+
+                    <label class="setting-row setting-row-locked">
+                        <span class="setting-text">
+                            <strong>Emergency reporting while unverified</strong>
+                            <small>Always allowed. Reports from unverified residents may be flagged for extra review by Dispatchers.</small>
+                        </span>
+                        <input type="checkbox" checked disabled>
+                    </label>
+
+                    <div class="setting-row">
+                        <span class="setting-text">
+                            <strong>Maximum MPIN attempts</strong>
+                            <small>Before an account is temporarily locked.</small>
+                        </span>
+                        <select id="settingMpinAttempts" class="toolbar-select">
+                            <option value="3">3 attempts</option>
+                            <option value="5" selected>5 attempts</option>
+                            <option value="10">10 attempts</option>
+                        </select>
+                    </div>
+
+                    <div class="settings-actions">
+                        <button type="button" class="button button-primary" id="saveSettingsButton">Save Settings</button>
+                    </div>
+                </article>
+
+                <article class="panel settings-panel">
+                    <div class="panel-heading">
+                        <h2>System Information</h2>
+                    </div>
+
+                    <ul class="info-list">
+                        <li><span>System name</span><strong>Emergency Management and Response System</strong></li>
+                        <li><span>Coverage area</span><strong>Minglanilla, Cebu, Philippines</strong></li>
+                        <li><span>Current stage</span><strong>Frontend prototype</strong></li>
+                        <li><span>Backend and database</span><strong>Not implemented</strong></li>
+                        <li><span>SMS, OTP, biometrics</span><strong>Visual placeholders only</strong></li>
+                    </ul>
+                </article>
+
+            </div>
+
+        </section>
+
+        <!-- ==================== ACTIVITY LOGS VIEW ==================== -->
+
+        <section class="admin-view" id="view-logs">
+
+            <div class="view-heading">
+                <div>
+                    <p class="section-label">AUDIT</p>
+                    <h1>Activity Logs</h1>
+                    <p class="view-description">Administrative actions only. Emergency report details are never recorded here.</p>
+                </div>
+            </div>
+
+            <div class="toolbar">
+                <select id="logTypeFilter" class="toolbar-select" aria-label="Filter by activity type">
+                    <option value="all">All activity</option>
+                    <option value="Account">Accounts</option>
+                    <option value="Verification">Verification</option>
+                    <option value="Request">Registration requests</option>
+                    <option value="Settings">Settings</option>
+                </select>
+            </div>
+
+            <div class="panel">
+                <div class="log-list" id="logList"></div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- ==================== MODAL ==================== -->
+
+    <div class="modal-overlay" id="modalOverlay" hidden>
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <div class="modal-header">
+                <h2 id="modalTitle"></h2>
+                <button type="button" class="modal-close" id="modalClose" aria-label="Close">×</button>
+            </div>
+
+            <div class="modal-body" id="modalBody"></div>
+            <div class="modal-footer" id="modalFooter"></div>
+        </div>
+    </div>
+
+    <!-- ==================== TOAST ==================== -->
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+</body>
+</html>
